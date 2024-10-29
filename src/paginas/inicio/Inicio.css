@@ -1,0 +1,44 @@
+.planFoodContainer{
+    padding: 0.5rem 1rem;
+}
+
+.planFoodContainer h1{
+    font-size: 3em;
+}
+
+.refeicaoAgora{
+    list-style-type: none;
+}
+
+.refeicaoAgora li{
+    text-transform: capitalize;
+}
+
+.refeicaoAgora li h2{
+    font-size: 2.25em;
+    margin-top: 0.5rem;
+}
+
+.refeicaoAgora li h3{
+    color:#454545;
+    margin: 0.25rem 0.35rem 0.5rem 0;
+    font-size: 1.25em;
+}
+
+.refeicaoAgora li h4{
+    margin: 0.5rem 0;
+    font-size: 0.75em;
+    font-style: italic;
+    color: #828282;
+    font-weight: normal;
+}
+
+.alimentosRefeicaoAgora{
+    margin: 0 0 0.25rem 0;
+    list-style-type: none;
+}
+
+.alimentosRefeicaoAgora li{
+    font-size: 1.15em;
+    margin: 0.15rem 0;
+}

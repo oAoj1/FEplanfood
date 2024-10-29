@@ -1,0 +1,172 @@
+.alimentosContainer{
+    padding: 0.25rem;
+}
+
+.criarAlimentoContainer{
+    margin: 0.25rem 0 1rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.criarAlimentoContainer button{
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 1rem;
+    padding: 0.25rem;
+
+    font-size: 1.5em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.1s;
+    border: 0;
+    
+    background-color: #24FF00;
+    color: #000;
+}
+
+.criarAlimentoContainer button:hover{
+    background-color: #16a500;
+}
+
+.criarAlimentoContainer button:active{
+    background-color: #fff;
+    color: #ccc;
+    transition: 0.1ms;
+}
+
+.overlayForm{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+    animation: animateUp 0.25s ease-in;
+}
+
+.formContainer{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tituloForm{
+    display: flex;
+    align-items: center;
+}
+
+.tituloForm h3{
+    font-size: 1.75em;
+    color: #000;
+}
+
+.tituloForm svg{
+    font-size: 2rem;
+    color: #ffdf;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.tituloForm svg:hover{
+    color: #dc143c;
+}
+
+.formCriarAlimento{
+    max-width: max-content;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: rgba(204, 204, 204,0.9);
+    border-radius: 10px;
+    border: 1px solid #000;
+    animation: animateLeft 0.5s ease-in;
+    z-index: 1000;
+}
+
+.formCriarAlimento input,
+.formCriarAlimento select{
+    font-size: 1em;
+    padding: 0.25rem;
+    border-radius: 3px;
+    border: 2px #cccc solid;
+    outline: 0;
+    margin: 0.25rem 0;
+    border-radius: 10px;
+}
+
+.formCriarAlimento select{
+    margin: 0.10rem 0 0.5rem 0;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.formCriarAlimento button{
+    color: #000;
+    font-size: 1em;
+    border: 1px solid #fff;
+    padding: 0.25rem 0;
+    cursor: pointer;
+}
+
+.alimentosContainer h1{
+    text-transform: capitalize;
+    font-size: 3em;
+    margin: 0 0 0 1rem;
+}
+
+.listaAlimentosContainer{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.alimentos{
+    margin: 1rem;
+    background-color: #357847;
+    padding: 0.75rem;
+    border-radius: 25px;
+}
+
+.alimentos h2{
+    text-transform: capitalize;
+    font-size: 1.25em;
+    color: #fff;
+    font-weight: 600;
+}
+
+@keyframes animateUp {
+    0%{
+        opacity: 0;
+        transform: translateY(0);
+    }
+    50%{
+        opacity: 1;
+        transform: translateY(-5px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(3px);
+    }
+}
+
+@keyframes animateBottom {
+    0%{
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(10px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}

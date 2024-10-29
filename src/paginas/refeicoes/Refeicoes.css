@@ -1,0 +1,29 @@
+.refeicaoContainer{
+    padding: 0.25rem;
+}
+
+.refeicaoContainer h1{
+    text-transform: capitalize;
+    font-size: 3em;
+    margin: 0 0 0.25rem 1rem;
+}
+
+.semanaToda{
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.semanaContainer{
+    margin: 0 0 1rem 1rem;
+    background-color: #008920;
+    padding: 1rem;
+    border-radius: 30px;
+}
+
+.semanaContainer h2{
+    text-transform: capitalize;
+    color: #fff;
+}

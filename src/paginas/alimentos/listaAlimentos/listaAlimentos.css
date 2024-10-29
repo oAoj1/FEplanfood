@@ -1,0 +1,15 @@
+.listaAlimentos{
+    list-style-type: none;
+}
+
+.listaAlimentos li{
+    margin-top: 0.25rem;
+    background-color: #85F9A0;
+    padding: 0.25rem;
+    border-radius: 5px;
+}
+
+.listaAlimentos li p{
+    text-transform: capitalize;
+    font-size: 0.85em;
+}
