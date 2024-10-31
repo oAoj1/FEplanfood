@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { IoIosClose, IoIosAdd } from "react-icons/io"
 
 import api from "../../../api/api"
+import Carregando from '../../../components/carregando';
 
 export default function Dia({ props }) {
 
@@ -86,89 +87,96 @@ export default function Dia({ props }) {
         }
     }
 
-    return (
-        <ul className="dia">
-            {dia.map(dia => (
-                <li key={dia._id}>
-                    <div className="tituloDia">
-                        <h3>{dia.refeicao}</h3>
-                        <IoIosAdd 
-                            onClick={() => {
-                                setIsOpenForm(true);
-                                setIdAtual(dia._id);
-                            }}
-                        />
-                    </div>
+    if(dia.length == 0){
+        return <Carregando/>
+        
+    }else{
 
-                    {isOpenForm && dia._id === idAtual ? 
-                        <div className="overlayForm">
-                            <div className="formContainer">
-                                <form
-                                    className='formCriarAlimento'
-                                    onSubmit={criarAlimento}
-                                >
-                                    <div className="tituloForm">
-                                        <IoIosClose
-                                            onClick={() => setIsOpenForm(false)}
-                                        />
-                                        <h2>Adicionar Alimento</h2>
-                                    </div>
-
-                                    <p className='diaRefeicao'>
-                                        {dia.refeicao} - {dia.dia}
-                                    </p>
-
-                                    <select
-                                        required
-                                        onChange={e => setInserirGrupo(e.target.value)}
+        return (
+            <ul className="dia">
+                {dia.map(dia => (
+                    <li key={dia._id}>
+                        <div className="tituloDia">
+                            <h3>{dia.refeicao}</h3>
+                            <IoIosAdd 
+                                onClick={() => {
+                                    setIsOpenForm(true);
+                                    setIdAtual(dia._id);
+                                }}
+                            />
+                        </div>
+    
+                        {isOpenForm && dia._id === idAtual ? 
+                            <div className="overlayForm">
+                                <div className="formContainer">
+                                    <form
+                                        className='formCriarAlimento'
+                                        onSubmit={criarAlimento}
                                     >
-                                        <option value="" disabled selected>
-                                            Escolha o grupo alimentar
-                                        </option>
-
-                                        {gruposAlimentos.map(grupo => (
-                                            <option key={grupo}>
-                                                {grupo}
-                                            </option>
-                                        ))}
-                                    </select>
-
-                                    {inserirGrupo && (
+                                        <div className="tituloForm">
+                                            <IoIosClose
+                                                onClick={() => setIsOpenForm(false)}
+                                            />
+                                            <h2>Adicionar Alimento</h2>
+                                        </div>
+    
+                                        <p className='diaRefeicao'>
+                                            {dia.refeicao} - {dia.dia}
+                                        </p>
+    
                                         <select
                                             required
-                                            onChange={e => setAlimentoSelecionado(e.target.value)}
+                                            onChange={e => setInserirGrupo(e.target.value)}
                                         >
                                             <option value="" disabled selected>
-                                                Escolha o alimento
+                                                Escolha o grupo alimentar
                                             </option>
-                                            {grupoSelecionado.map(grupo => (
-                                                <option key={grupo._id} value={grupo._id}>
-                                                    {grupo.alimento}
+    
+                                            {gruposAlimentos.map(grupo => (
+                                                <option key={grupo}>
+                                                    {grupo}
                                                 </option>
                                             ))}
                                         </select>
-                                    )}
-
-                                    <button type="submit">
-                                        Enviar
-                                    </button>
-                                </form>
+    
+                                        {inserirGrupo && (
+                                            <select
+                                                required
+                                                onChange={e => setAlimentoSelecionado(e.target.value)}
+                                            >
+                                                <option value="" disabled selected>
+                                                    Escolha o alimento
+                                                </option>
+                                                {grupoSelecionado.map(grupo => (
+                                                    <option key={grupo._id} value={grupo._id}>
+                                                        {grupo.alimento}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        )}
+    
+                                        <button type="submit">
+                                            Enviar
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                    : ''}
+                        : ''}
+    
+                        <ul className='alimentosDia'>
+                            {dia.alimentos.map(alimentos => (
+                                <li key={alimentos._id}>
+                                    <p>{alimentos.alimento}</p>
+                                    <IoIosClose 
+                                        onClick={() => deletarAlimento(dia._id,alimentos._id)}
+                                    />
+                                </li>
+                            ))}
+                        </ul>
+                    </li>
+                ))}
+            </ul>
+        );
+    }
 
-                    <ul className='alimentosDia'>
-                        {dia.alimentos.map(alimentos => (
-                            <li key={alimentos._id}>
-                                <p>{alimentos.alimento}</p>
-                                <IoIosClose 
-                                    onClick={() => deletarAlimento(dia._id,alimentos._id)}
-                                />
-                            </li>
-                        ))}
-                    </ul>
-                </li>
-            ))}
-        </ul>
-    );
 }

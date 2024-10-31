@@ -4,6 +4,8 @@ import { useEffect, useState } from "react"
 
 import api from "../../../api/api"
 
+import Carregando from '../../../components/carregando'
+
 export default function ListaAlimentos({props}){
 
     const [listaAlimentos,setListaAlimentos] = useState([])
@@ -19,13 +21,20 @@ export default function ListaAlimentos({props}){
         lerListaAlimentos()
     },[])
 
-    return(
-        <ul className="listaAlimentos">
-            {listaAlimentos.map(alimentos => (
-                <li key={alimentos._id}>
-                    <p>{alimentos.alimento}</p>
-                </li>
-            ))}
-        </ul>
-    )
+    if(listaAlimentos.length == 0){
+        return <Carregando/>
+        
+    }else{
+        return(
+            <ul className="listaAlimentos">
+                {listaAlimentos.map(alimentos => (
+                    <li key={alimentos._id}>
+                        <p>{alimentos.alimento}</p>
+                    </li>
+                ))}
+            </ul>
+        )
+
+    }
+
 }

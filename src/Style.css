@@ -6,3 +6,7 @@
     box-sizing: border-box;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
+
+#root{
+    margin-left: 20%;
+}

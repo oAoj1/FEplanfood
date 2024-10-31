@@ -48,6 +48,41 @@ export default function Alimentos(){
         }
     }
 
+    const listaAlimentos = [
+        {
+            grupo:'cereais',
+            componente:<ListaAlimentos props='cereais'/>
+        },
+        {
+            grupo:'proteinas',
+            componente:<ListaAlimentos props='proteinas'/>
+        },
+        {
+            grupo:'leguminosas',
+            componente:<ListaAlimentos props='leguminosas'/>
+        },
+        {
+            grupo:'frutas',
+            componente:<ListaAlimentos props='frutas'/>
+        },
+        {
+            grupo:'vegetais',
+            componente:<ListaAlimentos props='vegetais'/>
+        },
+        {
+            grupo:'doces',
+            componente:<ListaAlimentos props='doces'/>
+        },
+        {
+            grupo:'gorduras',
+            componente:<ListaAlimentos props='gorduras'/>
+        },
+        {
+            grupo:'laticinios',
+            componente:<ListaAlimentos props='laticinios'/>
+        }
+    ]
+
     return(
         <div style={{display:"flex",alignItems:'flex-start'}}>
             <SidePanel/>
@@ -110,40 +145,17 @@ export default function Alimentos(){
                     </div>
                 : ''}
 
-                <div className="listaAlimentosContainer"> 
-                    <div className="alimentos">
-                        <h2>cereais</h2>
-                        <ListaAlimentos props='cereais'/>
-                    </div>
-                    <div className="alimentos">
-                        <h2>proteinas</h2>
-                        <ListaAlimentos props='proteinas'/>
-                    </div>
-                    <div className="alimentos">
-                        <h2>leguminosas</h2>
-                        <ListaAlimentos props='leguminosas'/>
-                    </div>
-                    <div className="alimentos">
-                        <h2>frutas</h2>
-                        <ListaAlimentos props='frutas'/>
-                    </div>
-                    <div className="alimentos">
-                        <h2>vegetais</h2>
-                        <ListaAlimentos props='vegetais'/>
-                    </div>
-                    <div className="alimentos">
-                        <h2>doces</h2>
-                        <ListaAlimentos props='doces'/>
-                    </div>
-                    <div className="alimentos">
-                        <h2>gorduras</h2>
-                        <ListaAlimentos props='gorduras'/>
-                    </div>
-                    <div className="alimentos">
-                        <h2>laticinios</h2>
-                        <ListaAlimentos props='laticinios'/>
-                    </div>
-                </div>
+                <ul className="listaAlimentosContainer">
+                    {listaAlimentos.map(alimentos => (
+                        <li 
+                            key={alimentos._id} 
+                            className='alimentos'
+                        >
+                            <h2>{alimentos.grupo}</h2>
+                            {alimentos.componente}
+                        </li>
+                    ))}
+                </ul>
 
             </div>
 

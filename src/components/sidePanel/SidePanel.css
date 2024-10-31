@@ -1,9 +1,12 @@
 .sidePanel {
-    width: 500px;
+    width: 20%;
     height: 100vh;
     background-color: #36F76D;
     padding: 0.5rem;
     overflow: hidden;
+    position: fixed; 
+    top: 0;        
+    left: 0; 
 }
 
 .headerPanel {
