@@ -1,6 +1,7 @@
 .menuResponsivo{
     display: none;
     flex-direction: column;
+    z-index: 10;
 }
 
 .menuHamburguer{
@@ -9,7 +10,7 @@
 }
 
 .opcoesMenuResponsivo{
-    width: 35vw;
+    width: 45vw;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -97,4 +98,15 @@
         opacity: 1;
         transform: translateX(1px);
     }
+}
+
+.overlay{
+    z-index: -5;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    background-color: rgba(0,0,0, 0.5);
 }

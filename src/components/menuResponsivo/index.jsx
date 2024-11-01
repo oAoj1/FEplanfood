@@ -18,8 +18,17 @@ export default function MenuResponsivo(){
         {rota:'refeicoes',label:'refeicoes'}
     ]
 
+    window.addEventListener('resize', fecharMenu)
+
+    function fecharMenu(){
+        setIsOpenMenu(false)
+    }
+
     return(
         <div className="menuResponsivo">
+            
+            {isOpenMenu ? <div className="overlay"></div> : ''}
+
             <IoIosMenu 
                 onClick={() => setIsOpenMenu(true)}
                 className='menuHamburguer'
