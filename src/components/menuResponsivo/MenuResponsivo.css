@@ -1,0 +1,100 @@
+.menuResponsivo{
+    display: none;
+    flex-direction: column;
+}
+
+.menuHamburguer{
+    width: 80px;
+    height: 80px;
+}
+
+.opcoesMenuResponsivo{
+    width: 35vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #357847;
+    animation: openMenu 0.25s ease-in-out;
+}
+
+.headerOpcoesMenuResponsivo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.headerOpcoesMenuResponsivo h3{
+    font-size: 2em;
+    color: #85F9A0;
+}
+
+.fecharMenuHamburguer{
+    width: 50px;
+    height: 50px;
+    margin: 1rem 0;
+    color: #ccc;
+}
+
+.opcoes{
+    width: 100%;
+    list-style-type: none;
+    padding: 0 1rem;
+}
+
+.opcoes li button{
+    background-color: transparent;
+    border: 0;
+    margin: 0.25rem 0;
+}
+
+.opcoes li button a{
+    color: #fff;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 300;
+    transition: 0.1s;
+}
+
+.opcoes li button a:hover{
+    color: #24FF00;
+}
+
+@media screen and (max-width:1100px){
+    .menuResponsivo{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:768px){
+    .headerOpcoesMenuResponsivo h3{
+        font-size: 1.25em;
+    }
+    .opcoes li button a{
+        font-size: 1.15em;
+    }
+}
+
+@keyframes openMenu {
+    0%{
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    50%{
+        opacity: 1;
+        transform: translateX(5px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(1px);
+    }
+}

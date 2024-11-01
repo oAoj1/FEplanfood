@@ -1,3 +1,4 @@
+import MenuResponsivo from '../menuResponsivo';
 import './SidePanel.css';
 
 import { Link } from 'react-router-dom'
@@ -14,6 +15,7 @@ export default function SidePanel() {
         <div className='sidePanel'>
             <div className="headerPanel">
                 <h2>PlanFood</h2>
+                <MenuResponsivo/>
             </div>
 
             <ul className="opcoesPanel">
